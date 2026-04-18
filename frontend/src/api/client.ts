@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { setupInterceptors } from './interceptors'; 
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://moodrobeproject-1.onrender.com/api';
 
 export const apiClient = axios.create({
     baseURL: API_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
     },
-    timeout: 10000,
+    timeout: 30000,
 });
 
 // Attach interceptors
