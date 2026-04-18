@@ -17,22 +17,8 @@ export const createApp = (): Application => {
     // Security middleware
     app.use(helmet());
 
-    // CORS configuration
-    app.use(cors({
-        origin: (origin, callback) => {
-            // Allow requests with no origin (curl, Postman, mobile apps)
-            if (!origin) return callback(null, true);
-            const configured = process.env.ALLOWED_ORIGINS?.split(',').map(o => o.trim()).filter(Boolean) || [];
-            // If specific origins are listed, only allow those
-            if (configured.length > 0) {
-                if (configured.includes(origin)) return callback(null, true);
-                return callback(new Error('CORS: origin not allowed'));
-            }
-            // No env var set — echo back the origin (permissive fallback)
-            return callback(null, origin);
-        },
-        credentials: true
-    }));
+    // CORS configuration — JWT is sent via Authorization header, not cookies, so credentials:true is not needed
+    app.use(cors({ origin: '*' }));
 
     // Body parsing
     app.use(json());
