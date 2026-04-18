@@ -16,7 +16,8 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "strictPropertyInitialization": false,
-        "baseUrl": "./src", 
+        "ignoreDeprecations": "5.0",
+        "baseUrl": "./src",
         "paths": {
             "@modules/*": [
                 "modules/*"

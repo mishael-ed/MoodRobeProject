@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec \"ts-node -r tsconfig-paths/register src/server.ts\"",
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "build": "echo 'No build step needed'",
+    "start": "ts-node --transpile-only -r tsconfig-paths/register src/server.ts"
   },
   "keywords": [],
   "author": "",
