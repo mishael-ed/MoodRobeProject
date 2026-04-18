@@ -41,7 +41,7 @@ export class UserFavoriteController {
                 return;
             }
 
-            const { productId } = req.params;
+            const productId = req.params.productId as string;
             await this.removeFavoriteUseCase.execute(req.userId, productId);
             res.status(200).json({ message: 'Favorite removed successfully' });
         } catch (error) {
@@ -70,7 +70,7 @@ export class UserFavoriteController {
                 return;
             }
 
-            const { productId } = req.params;
+            const productId = req.params.productId as string;
             const isFavorite = await this.checkFavoriteUseCase.execute(req.userId, productId);
             res.status(200).json({ isFavorite });
         } catch (error) {

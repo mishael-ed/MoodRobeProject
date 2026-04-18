@@ -136,7 +136,7 @@ CREATE TABLE cart_items (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   image_url VARCHAR(500),
   product_id UUID,
-  variant_attributes JSONB;
+  variant_attributes JSONB,
   UNIQUE(cart_id, product_variant_id)
 );
 -- ORDER AGGREGATE
